@@ -6,18 +6,24 @@ addPaciente.addEventListener("click", function (event) {
 
     var paciente = obtemPacienteDoForm(form)
 
-
-
-
     var pacienteTr = montaTr(paciente)
 
+    var erros = validaPaciente(paciente)
+    
 
+    if(erros.length > 0){
+        var mensagemErro = document.querySelector("#mensagem-erro")
+        mensagemErro.textContent = erros
+        mensagemErro.classList.add("paciente-invalido")
+        return
+    }
 
 
 
     var tabela = document.querySelector("#tabela-pacientes")
 
     tabela.appendChild(pacienteTr)
+
     form.reset()
 
 }
@@ -53,4 +59,19 @@ function montaTd(dado, classe) {
     td.textContent = dado
     td.classList.add(classe)
     return td
+}
+function validaPaciente(paciente){
+
+    var erros = []
+    if (!validaPeso(paciente.peso) ){
+        erros.push("peso é invalido")
+        
+    }
+    if(!validaAltura(paciente.altura)){
+        erros.push("altura invalida")
+
+    }
+    return erros
+        
+
 }
