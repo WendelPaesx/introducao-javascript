@@ -12,8 +12,8 @@ addPaciente.addEventListener("click", function (event) {
     
 
     if(erros.length > 0){
-        var mensagemErro = document.querySelector("#mensagem-erro")
-        mensagemErro.textContent = erros
+        exibeMensagensDeErro(erros)
+        
         mensagemErro.classList.add("paciente-invalido")
         return
     }
@@ -28,6 +28,15 @@ addPaciente.addEventListener("click", function (event) {
 
 }
 )
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro")
+   erros.forEach(function(erro) {
+    var li = document.createElement("li")
+    li.textContent = erro
+    ul.appendChild(li)
+   });
+}
+
 function obtemPacienteDoForm(form) {
 
     var paciente = {
@@ -71,7 +80,10 @@ function validaPaciente(paciente){
         erros.push("altura invalida")
 
     }
+    console.log(erros)
     return erros
+    
+    
         
 
 }
