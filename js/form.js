@@ -76,9 +76,11 @@ function validaPaciente(paciente){
         erros.push("peso é invalido")
         
     }
-    if(!validaAltura(paciente.altura)){
-        erros.push("altura invalida")
+    if(validaAltura(paciente.altura)){
+        
 
+    }else{
+        erros.push("altura invalida")
     }
     console.log(erros)
     return erros
