@@ -67,4 +67,3 @@ function calculaImc(peso, altura) {
 
 
 
-

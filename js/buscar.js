@@ -1,8 +1,8 @@
 var botaoAdicionar = document.querySelector("#buscar-paciente")
 
-botaoAdicionar.addEventListener("click", function (event) {
+botaoAdicionar.addEventListener("click", function() {
 
-    event.preventDefault()
+    
 
 
 
@@ -14,11 +14,15 @@ botaoAdicionar.addEventListener("click", function (event) {
     xhr.addEventListener("load", function () {
 
         var resposta = xhr.responseText
-        console.log(typeof resposta);
-        var paciente = JSON.parse(resposta)
-        console.log( paciente);
-
         
+        var pacientes = JSON.parse(resposta)
+        
+
+        pacientes.forEach(function(paciente) {
+        adicionaPacienteNaTabela(paciente)
+            
+        });
 
     })
 })
+// metodo AJAX. criando uma requisição de modo assincrona pra nao siar da pagina.

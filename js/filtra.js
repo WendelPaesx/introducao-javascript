@@ -1,7 +1,7 @@
 var campoDeFiltro = document.querySelector("#filtrar-tabela")
 
 campoDeFiltro.addEventListener("input", function () {
-    console.log(this.value);
+    
     
     var pacientes = document.querySelectorAll(".paciente")
 
@@ -32,3 +32,5 @@ campoDeFiltro.addEventListener("input", function () {
     
     
 })
+
+// adcionando evento de filtrar tabela, praticando if(), for(), new regExp()
