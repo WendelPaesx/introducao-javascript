@@ -6,7 +6,7 @@ addPaciente.addEventListener("click", function (event) {
 
     var paciente = obtemPacienteDoForm(form)
 
-    var pacienteTr = montaTr(paciente)
+    
 
     var erros = validaPaciente(paciente)
 
@@ -20,16 +20,21 @@ addPaciente.addEventListener("click", function (event) {
 
 
 
-    var tabela = document.querySelector("#tabela-pacientes")
+    
 
-    tabela.appendChild(pacienteTr)
+    
 
     form.reset()
     var mensagemErro = document.querySelector("#mensagem-erro")
     mensagemErro.innerHTML = ""
 
+})function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente)
+    var tabela = document.querySelector("#tabela-pacientes")
+    tabela.appendChild(pacienteTr)
 }
-)
+
+
 function exibeMensagensDeErro(erros) {
     var ul = document.querySelector("#mensagem-erro")
     ul.innerHTML = ""
